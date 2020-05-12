@@ -1,0 +1,102 @@
+---
+title: "Narrative"
+author: "Reuben Perez"
+date: "5/12/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1.Brief substative background/goal
+
+There is a good level of consistency in ethnoracial data collection among social scientists in the United States. Most U.S. researchers have in mind a general categorical scheme that includes whites, Blacks, Asians, Latinxs, and Native Americans. At the same time, most researchers realize that these broad categories obfuscate significant heterogeneity within each of these major groups. For example, Latinxs are a growing population in the U.S., representing immigrants and their U.S. born descendants from distinct cultural backgrounds across various regions in the western hemisphere, including North America (e.g., Mexico), Central America, South America, and the Caribbean. Upon entering the U.S., Latinxs also undergo different processes of racialization based on their perceived phenotype, which shapes how they come to understand their sense of belonging with other pan-ethnics (Hordge-Freeman and Veras 2019; Howard 2017; Itzigsohn and Dore-Cabral 2000; Romo 2017). Researchers have also found that intra-group diversity contributes to conflict within the context of domestic politics and policy preferences. Given this heterogeneity in political behavior, culture, and processes of racialization, what explains pan-ethnic adoption among the Latinx community? What we do know is that people can use multiple labels, but there are still questions unanswered about who is likely to adopt these labels. As such, this study asks what factors influence Latinxs adoption of pan-ethnic labels (e.g., Latinx, Latino/a, Hispanic)? 
+
+This paper uses the case of Latinx panethnicity as an opportunity to better understand the political and cultural processes that underlie the adoption of ethnoracial labels. To date the research on the issue has largely focused on the state or on ethnic elites, and thus reveals how many of the identity labels we see today are a product of politically negotiated compromises between these two factions (Espiritu 1993; Mora 2014; Nobles 2000). Yet much less is known about label diffusion within target populations and how the politics of label construction might be reflected in adoption pattern among Latinxs. My focus on the case of panethnic adoption also provides a unique opportunity to understand how intersectional politics, especially concerning race and gender, impact the way that communities define themselves.
+
+Civil rights history shows that generations, or birth cohorts, matter. In all of these cases it was often the youth who came of age in the 1960s that were more likely to join progressive racial movements and champion a new racial narrative (Skrentny 2004). These individuals displayed what Manheim (1952) famously described as a “common consciousness” forged by the broader social (and racial) history in which they came of age in the United States. Indeed, the idea of generational differences has been tremendously important to the way that we consider a range of social phenomena - from protest participation (Caren et. al 2011) to gender and marriage (Bristow 2016) to understandings of the self (Silva 2013). This study builds on this work by using a generational lens to understand the adoption of ethnoracial labels. Specifically, I hypothesize that younger generations will be more likely to adopt panethnic than will older generations. 
+
+## 2.Collecting Data
+
+Data for this study come from the January 2020 California Poll (N=6845), administered by the Institute of Governmental Studies at UC Berkeley. IGS conducts periodic surveys of public opinion in California on matters of politics and public policy. The poll seeks to provide a broad measure of contemporary public opinion and generate data for subsequent scholary analysis. Online survey invitations were emailed to a stratified random sample culled from the California State Department’s registered voter database. This paper draws from the U.S. born Latinx subset of the sample (N=1532) for my analysis. To date, this is the only known survey-based study to explore adoption of all Latinx panethnic labels, including the new ‘Latinx’ label. However, my analysis draws from a subsample of observations, specifically from those respondents who identified as Latino/a, Hispanic, or of Latin American descent on the survey. I selected this survey over others because it is one of the few surveys that asks Latinx respondents about their panethnic preferences (e.g., Hispanic, Latino/a, and Latinx). Other surveys tend to group respondents into "Hispanic" or "Latino/a/x" categories if respondents indicate that they are of Latin American descent. It assumes that respondents identify with panethnic labels based on their ethnocultural background. 
+
+## 3.Cleaning / pre-processing data
+
+### 3.1 Creating Dependent and Independent Variables
+
+To create the dependent and idependent variables, I used base R functions. The primary variable of interest in this study stems from a survey question in the IGS poll asking Latinx identifying respondents: ‘How often do you use the label Hispanic to describe yourself’, ‘how often do you use the label Latino/a to describe yourself,’ and ‘how often do you use the label Latinx to describe yourself?’ Response options included ‘not at all,’ ‘rarely,’ ‘sometimes,’ and ‘very often,’ with values scored from 1-4, respectively. To create a dependent variable with a dichotomous outome, I coded ‘not at all’ responses as “0” and the other responses as “1.” The majority of the covariates (i.e., independent variables) are categorical variables, with the exception of household income, and were created using base R functions. 
+
+### 3.2 Subsetting the Data 
+
+After creating my dependent and independent variables, I used the subset() function to subset these variables into a smaller dataset for analysis. In total, this new dataset contained 8 variables, icluding my dependent variables (Latnx_Panethnic) and independent variables (age cohorts, immigrant generation, political leaninings, gender, income, education, and ethncity).
+
+
+## 4.Analysis, visualization, and Results
+
+### 4.1 Visualization and Analysis
+
+I used ggplot() to create visualizations for this study. Using the bar graph function in ggplot(), I created three bar plots showing panethnic adoption across 1) age cohorts, 2) Immigrant generation, and 3) ethnicity. Because ethnicity, immigrant generation, and age cohorts are categorical variables, I decided to visualize these data in a bar plot. Finally, I used the glm() operator to run a binomial logistic regression, which is best suited for analyzing dichotomous outcomes, in order to predict for panethnic adoption. 
+
+### 4.2 Results
+
+#### 4.2.1 Bar Plots
+
+
+Similar to previous studies, I find a similar trend in pan-ethnic adoption is relatively among Latinx respondents. For example, a 2012 pew research study finds that 24 percent of respondents prefer identifying with a pan-ethnic label than with their family’s national origin (Taylor et al. 2012). Similarly, this study finds that approximately 34 percent of Latinx respondents adopt panethnic labels. However, it must be noted that the pew research study asked respondents if they prefer panethnic labels over other identifiers, whereas the IGS survey asked Latinx respondents if they ever identify with panethnic labels. This could explain why a larger proportion Latinx respondents in the IGS survey support the use of panethnic labels than in the pew research study. It’s possible that panethnic labels are complementary, and that Latinxs respondents adopt panethnic labels in certain settings even if they prefer to identify with their family’s national origin. What is becoming clear is that Latinx identifiers are exhibiting patterns that cultural scholars have long identified - that individuals build a cultural repertoire of labels and group definitions (Swidler 2001) and that they can switch between labels depending on the context at hand (Carter 2005). 
+
+
+While the rates of usage for panethnic labels in the Latinx sample are relatively low, the distribution of panenthnic adoption by ethnic group (see figure 2.1) provide some preliminary evidence for another key finding: panethnic label usage is relatively higher among Central Americans than other Latinx groups. More than half of the Central American respondents indicated that they identify with panethnic labels, whereas panethnic usage among other groups is less than half. Figure 2.2 also shows a generational effect in panethnic adoption. Less than half of the third-generation respondents do not identify with panethnic labels to describe themselves compared to the first and second generations, where approximately half of these respondents identify with panethnic labels. Displaying the relationship between panethnic adoption and age cohorts, figure 2.3 shows that a greater proportion of generation z respondents identify with panethnic labels than other age cohorts. Specifically, almost all generation z respondents identify with panethnic labels. Exploring these preliminary patterns panethenic adoption in greater depth, we turn to the binomial logit regression analysis. 
+
+#### 4.2.2 Regression Table
+
+
+The regression model illustrates several noteworthy patterns. First is that there are significant differences in label usage across birth cohorts. Baby Boomer, Generation X, and Millennial U.S. born Latinxs all have significantly lower odds of using panethnic labels more frequently than the youngest birth cohort, Generation Z. Or, put differently, Generation Z respondents, the youngest cohort, exhibit higher levels of panethnic usage than all other birth cohorts. 
+
+Second, the regression model shows evidence of differences by immigrant generation. Latinxs of the third generation and beyond, meaning those born in the U.S. and for whom both parents were also born in the U.S., have lower odds of being in a higher category of panethnic usage’ than Latinxs of the second and third generations. These findings mirror the patterns of using ‘Hispanic’ in the early 1990s (Jones Correa and Leal 1996).
+
+Third, I observe ethnic differences in the frequency of using panethnic labels. On average, and controlling for all other covariates in the model, Latinxs with Central American ancestry (OR: 1.54) report higher odds of more frequent panethnic use than other Latinx groups. 
+
+Several control variables are also worth mentioning. Notably, we find no differences in the frequency of panethnic labels by education. Controlling for all other covariates in the model, those who have obtained a four-year college degree or higher do not use the term more frequently than those who have not. We also do not see differences by gender. We do, however, find differences by household income. Latinxs who come from households with higher incomes (.885) report lower odds of using panethnic labels. 
+
+## 5. Future work and Challenges
+
+### 5.1 Challenges
+
+Although my project was relatively straight forward, my main challange was creating the visualizations for this project. It took me some time to write the correct code to create my graphs with the desired features--color, size, text etc. 
+
+### 5.2 Future Work
+
+More research is needed to understand the next stage of panethnic diffusion. National samples will underscore what part of this is a uniquely California story, and what part is more generalized. Florida and New York data, that would likely have larger Afro-Latinx samples, could provide insight into how/whether blackness matters for panethnic adoption. Moreover, identity label diffusion is a relational process shaped both by in-group dynamics and out-group responses. How non-Latinx white, black, indigenous, Asian-American, and other groups conceptualize and use the label is an important consideration for future research. More data is also necessary on what the label means to different populations of non-elites. Might older Latinxs or the non-politically inclined see this as simply another term that is similar to Latinxs, or do they come to understand it as centrally about gender politics? Answering these questions can shed critical light on the power and politics of ethnoracial labeling in contemporary society. 
+
+## Works cited
+ 
+Bristow, Jennie. 2016. The Sociology of Generations: New Directions and Challenges. London, UK: Palgrave MacMillan 
+
+Carter, Prudence L. 2005. Keepin’ It Real: School Success beyond Black and White. New York, NY: Oxford University Press
+
+Espiritu, Yen Le. 1993. Asian American Panethnicity: Bridging Institutions and Identities. Temple, Philadelphia: Temple University Press
+
+Hordge-Freeman, Elizabeth and Edlin Vargas. 2019. “Out of the Shadows, into the Dark: Ethnoracial Dissonance and Identity Formation among Afro-Latinxs.” Sociology of Race and Ethnicity
+
+Howard, Tiffany. 2017. “Afro-Latino and the Black-Hispanic Identity: The Politics of Intra-Group Conflict and Cohesion.” National Political Science Review 19.1: 29-50 
+
+Itzigsohn, Jose and Carlos Dore-Cabral. 2000. “Competing Identities? Race, Ethnicity and Panethnicity among Dominicans in the United States.” Sociological Forum 15(2)
+
+Jones Correa, Micheal and David L. Leal. 1996. Becoming “Hispanic”: Secondary Panethnic Identification among Latin American-Origin Populations in the United States. Cambridge, MA: Harvard University Press
+
+Mannheim, Karl. 1952. “The Problem of Generations.” In Essays on the Sociology of Knowledge, ed. Kecskemeti, Paul. London: Routledge and Kegan Paul. Pp. 276–320
+
+Mora, Cristina. 2014.  Making Hispanics: How Activist Bureaucrats and Media Constructed a New American. Chicago and London: The University of Chicago Press
+
+Nobles, Melissa. 2000. Shades of Citizenship: Race and the Census in Modern Politics. Stanford, CA: Stanford University Press.
+
+Romo, Rebecca. 2017. ”’You’re Not Black or Mexican Enough!’: Policing Racial/Ethnic Authenticity Among Blaxicans in the United States.” In Joanne L. Rondilla, Rudy P. Guevarra, Jr., and Paul Spickard, eds. Red and Yellow, Black and Brown: Decentering Whiteness in Mixed Race Studies
+
+Skrentny, John D. 2004. The Minority Rights Revolution. Cambridge, MA: Harvard University Press 
+
+Silva, Jennifer M. 2013. Coming Up Short: Working-Class Adulthood in an Age of Uncertainty. London, UK: Oxford University Press
+
+Swidler, Ann. 2001. Talk of Love: How Culture Matters. Chicago and London: University of Chicago Press
+
+Taylor, Paul, Mark Hugo Lopez, Jessica Martinez, and Gabriel Velasco. 2012. “When Labels Don’t Fit: Hispanics and Their Views of Identity.” Pew Research Center: Hispanic Trends. https://www.pewresearch.org/hispanic/2012/04/04/when-labels-dont-fit-hispanics-and-their-views-of-identity/

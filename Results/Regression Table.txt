@@ -1,0 +1,59 @@
+
+Panethnic Adoption
+=====================================================
+                              Latinx_Panethnic       
+-----------------------------------------------------
+Gen X                              1.579*            
+                                   (0.326)           
+                                                     
+Millennials                         1.315            
+                                   (0.318)           
+                                                     
+Gen Z                              2.123**           
+                                   (0.521)           
+                                                     
+Second Generation                  0.629*            
+                                   (0.127)           
+                                                     
+Third Generation                   0.508**           
+                                   (0.109)           
+                                                     
+Gender                              0.922            
+                                   (0.132)           
+                                                     
+Central American                   1.546*            
+                                   (0.318)           
+                                                     
+South American                      0.774            
+                                   (0.226)           
+                                                     
+Other                               0.713            
+                                   (0.160)           
+                                                     
+Income                             0.885**           
+                                   (0.038)           
+                                                     
+High School                         1.781            
+                                   (0.606)           
+                                                     
+Some College/Associates             1.355            
+                                   (0.449)           
+                                                     
+Bachelors                           1.347            
+                                   (0.457)           
+                                                     
+Moderate                            1.286            
+                                   (0.239)           
+                                                     
+Liberal                             1.094            
+                                   (0.210)           
+                                                     
+Constant                            0.536            
+                                   (0.198)           
+                                                     
+-----------------------------------------------------
+Observations                         960             
+Log Likelihood                    -588.721           
+Akaike Inf. Crit.                 1,209.442          
+=====================================================
+Note:                   *p<0.05; **p<0.01; ***p<0.001

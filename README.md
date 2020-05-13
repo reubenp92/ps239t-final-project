@@ -8,6 +8,7 @@ R, version 1.2.5033
 Files
 ## Data
 Latinx.csv: January 2020 Institute of Governmental Studies (IGS) dataset. Online analysis of dataset available here: https://dlab.berkeley.edu/data-resources/california-polls#IGSPOLL
+
 Latinx_subset.csv: The final analysis dataset derived from the IGS dataset. This new dataset contains observations for the following variables:
   - Latinx_panethnic: Respondents use of Panethnic labels
   - Cohorts: Birth cohorts (boomers, gen x, millenials, and gen z) 

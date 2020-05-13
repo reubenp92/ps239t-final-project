@@ -21,6 +21,7 @@ Latinx_subset.csv: The final analysis dataset derived from the IGS dataset. This
 ## Code
 01_Setup.Rmd: Loads Latinx raw dataset, creates variables for analysis, and creates final analysis dataset. 
 02_Visualizations.Rmd: Conducts descriptive analysis of the data, producing bar graphs showing panethnic adoption by birth cohort, ethncity, and immigrant generation.
+
 03_Regression Table.Rmd: Runs binomial logistic regression predicting for panethnic adoption and creates regression table using stargazer
 ## Results
 Figure_01_Panethnic_by_Ethnicity.png: Graphs panethnic adoption by ethinicity.

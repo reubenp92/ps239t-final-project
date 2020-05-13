@@ -4,9 +4,12 @@ This study uses the case of Latinx panethnicity as an opportunity to better unde
 The author used RStudio to load, clean, and subset the 2020 IGS dataset. He then used ggplot to visualize panethnic adoption by several covariates. Finally, he ran a binomial regression and created a regression table using stargazer. 
 
 # Dependencies
+
 R, version 1.2.5033
+
 Files
 ## Data
+
 Latinx.csv: January 2020 Institute of Governmental Studies (IGS) dataset. Online analysis of dataset available here: https://dlab.berkeley.edu/data-resources/california-polls#IGSPOLL
 
 Latinx_subset.csv: The final analysis dataset derived from the IGS dataset. This new dataset contains observations for the following variables:
@@ -19,12 +22,19 @@ Latinx_subset.csv: The final analysis dataset derived from the IGS dataset. This
   - HouseholdIncome: Income
   - Education: Highest degree acheived (HS, some college/Associates, Bachelors, Graduate)
 ## Code
+
 01_Setup.Rmd: Loads Latinx raw dataset, creates variables for analysis, and creates final analysis dataset. 
+
 02_Visualizations.Rmd: Conducts descriptive analysis of the data, producing bar graphs showing panethnic adoption by birth cohort, ethncity, and immigrant generation.
 
 03_Regression Table.Rmd: Runs binomial logistic regression predicting for panethnic adoption and creates regression table using stargazer
+
 ## Results
+
 Figure_01_Panethnic_by_Ethnicity.png: Graphs panethnic adoption by ethinicity.
+
 Figure_02_Panethnic_by_Immigrant_Generation.png: Graphs panethnic adoption by Immigrant generation.
+
 Figure_03_Panethnic_by_Cohort.png: Graphs panethnic adoption by birth cohort.
+
 Regression Table.txt: Summarizes the results of binomial logistic regression, predicting panethnic adoption on a number of covariates.

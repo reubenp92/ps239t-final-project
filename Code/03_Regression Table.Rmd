@@ -1,0 +1,78 @@
+---
+title: "Regression Analysis"
+author: "Reuben Perez"
+date: "5/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Set up
+
+```{r}
+# remove all objects
+rm(list=ls())
+
+# Unload all packages 
+library(pacman)
+pacman::p_unload(all)
+
+#Load packages
+pacman::p_load(
+  tidyverse, #dplyr, readr, etc.
+  data.table, #fread() 
+  magrittr, #%<>% operatorn
+  stargazer, #for regression table
+  oddsratio #to convert coefficients to odds ratio
+)
+```
+
+# 2) Logistic Regression Predicting for Use of Panethnicity
+
+```{r}
+#Predicting for Panethnic Adoption
+
+model <- glm(Latinx_Panethnic ~ cohorts + Ethnicity + Education + gender + HouseholdIncome + Immigrant_Generation + Political_leanings, data = Latinx_subset, family = binomial) 
+
+summary(model)
+
+```
+
+# 3) Create Regression table using stargazer
+
+```{r}
+
+#Create table using stargazer
+Table <-stargazer(model, type = 'text', title = "Panethnic Adoption", order = c("cohorts","Immigrant_Generation","gender","Ethnicity", "HouseholdIncome","Education", "Political_leanings"), covariate.labels=c("Gen X", "Millennials", "Gen Z", "Second Generation","Third Generation", "Gender", "Central American","South American","Other", "Income", "High School", "Some College/Associates", "Bachelors", "Moderate", "Liberal"), dep.var.caption= "")
+
+```
+
+## 3.1  Convert Coefficients to Odds Ratios for (easier) Interpretation
+
+```{r}
+
+# Code for exponentiating Odds Ratio and Standard Error
+
+stargazer2 <- function(model, odd.ratio = F, ...) {
+  if(!("list" %in% class(model))) model <- list(model)
+    
+  if (odd.ratio) {
+    coefOR2 <- lapply(model, function(x) exp(coef(x)))
+    seOR2 <- lapply(model, function(x) exp(coef(x)) * summary(x)$coef[, 2])
+    p2 <- lapply(model, function(x) summary(x)$coefficients[, 4])
+    stargazer(model, coef = coefOR2, se = seOR2, p = p2, ...)
+    
+  } else {
+    stargazer(model, ...)
+  }
+}
+
+
+# Create Table with Odds Ratio and Export
+
+Table <- stargazer2 (model, type = 'text', title = "Panethnic Adoption", odd.ratio = T, order = c("cohorts","Immigrant_Generation","gender","Ethnicity", "HouseholdIncome","Education", "Political_leanings"), covariate.labels=c("Gen X", "Millennials", "Gen Z", "Second Generation","Third Generation", "Gender", "Central American","South American","Other", "Income", "High School", "Some College/Associates", "Bachelors", "Moderate", "Liberal"), star.char = c("*", "**", "***"), star.cutoffs = c(.05, .01, .001), dep.var.caption= "", out='/Users/Reubenperez/Dropbox/R Projects/Latinx Project/table.txt')
+
+```
+

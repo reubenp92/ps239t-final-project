@@ -1,0 +1,83 @@
+---
+title: "Visualizations"
+author: "Reuben Perez"
+date: "5/12/2020"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Setup
+
+```{r}
+# remove all objects
+rm(list=ls())
+
+# Unload all packages 
+library(pacman)
+pacman::p_unload(all)
+
+#Load packages
+pacman::p_load(
+  tidyverse, #dplyr, readr, etc.
+  magrittr, #%<>% operator
+  ggthemes, #extra themes
+  viridis, #great colors
+)
+```
+
+# Plot 1 - Use of Panethnic Lables by Birth Cohorts
+
+```{r pressure, echo=FALSE}
+
+#Use of Panethnic Label by Cohort
+Latinx_subset %>% 
+    drop_na(Latinx_Panethnic, cohorts) %>%
+    ggplot(aes(cohorts, fill= Latinx_Panethnic)) +
+    geom_bar( position=position_dodge(), color = "black", width = 0.5) +
+    xlab("Cohort") + 
+    ylab("Count") + 
+    ggtitle("Use of Panethnic Label by Cohort") +
+    theme_minimal() +
+    scale_fill_brewer(palette = "Blues", name = "Use of Labels", labels = c("no", "yes")) 
+
+```
+
+# Plot 2 - Use of Panethnic Lables by Ethnicity
+
+```{r}
+
+#Use of Panethnic Labels by Ethnicity
+Latinx_subset%>% 
+    drop_na(Ethnicity, Latinx_Panethnic) %>%
+    ggplot(aes(Ethnicity, fill= Latinx_Panethnic)) +
+    geom_bar( position=position_dodge(), color = "black", width = 0.5)  +
+    xlab("Ethnicity") + 
+    ylab("Count") + 
+    ggtitle("Use of Panethnic Label by Ethnicity") + 
+    theme_minimal() +
+    scale_fill_brewer(palette = "Blues", name = "Use of Labels", labels = c("no", "yes")) 
+
+```
+
+# Plot 3 - Use of Panethnic Labels by Immigrant Generation
+
+```{r}
+
+# Use of Panethnic Label by Generation
+Latinx_subset%>% 
+      drop_na(Immigrant_Generation, Latinx_Panethnic) %>%
+      ggplot(aes(Immigrant_Generation, fill=Latinx_Panethnic))+
+       geom_bar(width = 0.5, color="black", position=position_dodge()) +
+       xlab("Generation") + 
+       ylab("Count") + 
+       ggtitle("Use of Panethnic Label by Immigrant Generation") +
+        theme_minimal() +
+      scale_fill_brewer(palette = "Blues", name = "Use of Labels", labels = c("no", "yes")) 
+
+
+```
+

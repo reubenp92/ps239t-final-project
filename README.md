@@ -7,7 +7,7 @@ The author used RStudio to load, clean, and subset the 2020 IGS dataset. He then
 
 R, version 1.2.5033
 
-Files
+# Files
 ## Data
 
 Latinx.csv: January 2020 Institute of Governmental Studies (IGS) dataset. Online analysis of dataset available here: https://dlab.berkeley.edu/data-resources/california-polls#IGSPOLL

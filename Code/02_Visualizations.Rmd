@@ -10,7 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Setup
+# 1) Setup
 
 ```{r}
 # remove all objects
@@ -29,7 +29,18 @@ pacman::p_load(
 )
 ```
 
-# Plot 1 - Use of Panethnic Lables by Birth Cohorts
+# 2) Load Latinx_subset Dataset
+
+```{r}
+#Set Working Directory and Import Dataset
+
+setwd('/Users/Reubenperez/Dropbox/R Projects/Latinx Project')
+Latinx_subset <- read_csv("/Users/Reubenperez/Dropbox/R Projects/Latinx Project/Latinx_subset.csv")
+
+```
+
+# 3) Create Visualizations
+## 3.1 Plot 1 - Use of Panethnic Lables by Birth Cohorts
 
 ```{r pressure, echo=FALSE}
 
@@ -46,7 +57,7 @@ Latinx_subset %>%
 
 ```
 
-# Plot 2 - Use of Panethnic Lables by Ethnicity
+## 3.2 Plot 2 - Use of Panethnic Lables by Ethnicity
 
 ```{r}
 
@@ -63,7 +74,7 @@ Latinx_subset%>%
 
 ```
 
-# Plot 3 - Use of Panethnic Labels by Immigrant Generation
+## 3.3 Plot 3 - Use of Panethnic Labels by Immigrant Generation
 
 ```{r}
 

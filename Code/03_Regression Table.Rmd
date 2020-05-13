@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Set up
+# 1) Set up
 
 ```{r}
 # remove all objects
@@ -22,14 +22,23 @@ pacman::p_unload(all)
 #Load packages
 pacman::p_load(
   tidyverse, #dplyr, readr, etc.
-  data.table, #fread() 
   magrittr, #%<>% operatorn
   stargazer, #for regression table
   oddsratio #to convert coefficients to odds ratio
 )
 ```
 
-# 2) Logistic Regression Predicting for Use of Panethnicity
+# 2) Load Latinx_subset Dataset
+
+```{r}
+#Set Working Directory and Import Dataset
+
+setwd('/Users/Reubenperez/Dropbox/R Projects/Latinx Project')
+Latinx_subset <- read_csv("/Users/Reubenperez/Dropbox/R Projects/Latinx Project/Latinx_subset.csv")
+
+```
+
+# 3) Logistic Regression Predicting for Use of Panethnicity
 
 ```{r}
 #Predicting for Panethnic Adoption
@@ -40,7 +49,7 @@ summary(model)
 
 ```
 
-# 3) Create Regression table using stargazer
+# 4) Create Regression table using stargazer
 
 ```{r}
 
@@ -49,7 +58,7 @@ Table <-stargazer(model, type = 'text', title = "Panethnic Adoption", order = c(
 
 ```
 
-## 3.1  Convert Coefficients to Odds Ratios for (easier) Interpretation
+## 4.1  Convert Coefficients to Odds Ratios for (easier) Interpretation
 
 ```{r}
 

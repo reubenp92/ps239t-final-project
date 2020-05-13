@@ -22,7 +22,6 @@ pacman::p_unload(all)
 #Load packages
 pacman::p_load(
   tidyverse, #dplyr, readr, etc.
-  data.table, #fread() 
   foreign, #load data types including stata .dta files
   haven, #read STATA files
   magrittr, #%<>% operator
